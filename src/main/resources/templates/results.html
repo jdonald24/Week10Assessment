@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentBook : ${books}">
+<td th:text="${currentBook.title}"/>
+<td th:text="${currentBook.authorFirstName}"/>
+<td th:text="${currentBook.authorLastName}"/>
+<td th:text="${currentBook.pageNum}"/>
+<td><a th:href="@{/edit/{id}(id=${currentBook.id})}">Edit</a></td>
+<td><a th:href="@{/delete/{id}(id=${currentBook.id})}">Delete</a></td>
+</table>
+</form>
+<a href="../inputBook">Add a new book</a>
+</body>
+</html>
